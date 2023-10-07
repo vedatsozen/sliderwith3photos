@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 LÜ SLİDER</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+</head>
+<body>
+    
+<h1>SLIDER WITH 3 PHOTOS</h1>
+<div id="container">
+    <div id="leftarrow"><img class="arrow" src="leftarrow.png"></div>
+    <div id="slidercontainer">
+        <div id="slider">
+            <img src="images/1.jpg">
+            <img src="images/2.jpg">
+            <img src="images/3.jpg">
+            <img src="images/4.jpg">
+            <img src="images/5.jpg">
+            <img src="images/6.jpg">
+            <img src="images/7.jpg">
+            <img src="images/8.jpg">
+            <img src="images/9.jpg">
+        </div>
+    </div>
+    <div id="rightarrow"><img class="arrow" src="rightarrow.png"></div>
+</div>
+
+
+</body>
+
+<script>
+    $(document).ready(function(){
+
+        var pxamount = 0;
+        
+        $("#leftarrow").click(function(){
+            if (pxamount < 1440) { // -1440 pikselden fazla sola kaydırmamak için kontrol
+                pxamount += 720;
+                $("#slider").animate({left:"-=" + 720 + "px"},1000);
+            }
+        });
+    
+        $("#rightarrow").click(function(){
+            if (pxamount > 0) { // 0'ın altına sağa kaydırmamak için kontrol
+                pxamount -= 720;
+                $("#slider").animate({left:"+=" + 720 + "px"},1000);
+            }
+        });
+ 
+
+
+        $("#slider img").mouseover(function() {
+  $(this).addClass("bigger");
+
+   });
+
+   $("#slider img").mouseleave(function() {
+  $(this).removeClass("bigger");
+
+   });
+
+});
+
+    </script>
+</html>
